@@ -6,9 +6,8 @@ describe("page", () => {
     expect.assertions(1);
 
     render(<Home />);
-
-    const heading = screen.getByRole("heading", { name: /hello world/i });
-
-    expect(heading).toBeVisible();
+    expect(
+      screen.getByRole("button", { name: /hello internet/i })
+    ).toBeVisible();
   });
 });

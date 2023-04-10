@@ -6,13 +6,18 @@ import React, { useState } from "react";
 interface CollapseInterface {
   buttonText: string;
   collapseText: string;
+  className?: string;
 }
 
-export function CollapseEx({ buttonText, collapseText }: CollapseInterface) {
+export function CollapseEx({
+  buttonText,
+  collapseText,
+  className,
+}: CollapseInterface) {
   const { isOpen, onToggle } = useDisclosure();
 
   return (
-    <>
+    <div className={className}>
       <Button onClick={onToggle}>{buttonText}</Button>
       <Collapse in={isOpen} animateOpacity>
         <Box
@@ -26,6 +31,6 @@ export function CollapseEx({ buttonText, collapseText }: CollapseInterface) {
           {collapseText}
         </Box>
       </Collapse>
-    </>
+    </div>
   );
 }

@@ -1,9 +1,8 @@
+"use client";
 import "./globals.css";
 
-export const metadata = {
-  title: "Sam James",
-  description: "An app about Sam James",
-};
+import { CacheProvider } from "@chakra-ui/next-js";
+import { ChakraProvider } from "@chakra-ui/react";
 
 export default function RootLayout({
   children,
@@ -12,7 +11,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <head />
+      <body>
+        <CacheProvider>
+          <ChakraProvider>{children}</ChakraProvider>
+        </CacheProvider>
+      </body>
     </html>
   );
 }

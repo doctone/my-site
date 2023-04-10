@@ -7,7 +7,7 @@ describe("page", () => {
 
     render(<Home />);
 
-    const heading = screen.getByRole("heading", { name: /docs \->/i });
+    const heading = screen.getByRole("heading", { name: /hello world/i });
 
     expect(heading).toBeVisible();
   });

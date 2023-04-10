@@ -10,4 +10,15 @@ describe("page", () => {
       screen.getByRole("button", { name: /hello internet/i })
     ).toBeVisible();
   });
+  it("should show a link to the sites github repository", () => {
+    expect.assertions(1);
+
+    render(<Home />);
+
+    expect(
+      screen.getByRole("link", {
+        name: /checkout the code for this site here\./i,
+      })
+    ).toBeInTheDocument();
+  });
 });

@@ -7,7 +7,7 @@ describe("Collapse", () => {
   it("should render a collapse element", () => {
     expect.assertions(2);
 
-    render(<CollapseEx buttonText="button" collapseText="content inside" />);
+    render(<CollapseEx buttonText="button">content inside</CollapseEx>);
 
     expect(screen.getByRole("button", { name: /button/i })).toBeVisible();
     expect(screen.queryByText("content inside")).not.toBeVisible();
@@ -15,7 +15,7 @@ describe("Collapse", () => {
   it("should show the content inside when clicked", () => {
     expect.assertions(3);
 
-    render(<CollapseEx buttonText="button" collapseText="content inside" />);
+    render(<CollapseEx buttonText="button">content inside</CollapseEx>);
 
     const button = screen.getByRole("button", { name: /button/i });
     expect(button).toBeVisible();

@@ -1,17 +1,17 @@
 "use client";
 
 import { Box, Button, Collapse, useDisclosure } from "@chakra-ui/react";
-import React, { useState } from "react";
+import React, { ReactNode, useState } from "react";
 
 interface CollapseInterface {
   buttonText: string;
-  collapseText: string;
+  children: ReactNode;
   className?: string;
 }
 
 export function CollapseEx({
   buttonText,
-  collapseText,
+  children,
   className,
 }: CollapseInterface) {
   const { isOpen, onToggle } = useDisclosure();
@@ -28,7 +28,7 @@ export function CollapseEx({
           rounded="md"
           shadow="md"
         >
-          {collapseText}
+          {children}
         </Box>
       </Collapse>
     </div>

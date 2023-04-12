@@ -17,4 +17,11 @@ describe("page", () => {
 
     expect(screen.getByRole("button", { name: /tech/i })).toBeVisible();
   });
+  it("renders a chess collapse", () => {
+    expect.assertions(1);
+
+    render(<Home />);
+
+    expect(screen.getByRole("button", { name: /chess/i })).toBeVisible();
+  });
 });

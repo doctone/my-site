@@ -17,6 +17,16 @@ export default function Home() {
         <Link href="">Github</Link>, or reach out to me on{" "}
         <Link href="">LinkedIn</Link> if you are interested in collaborating
       </CollapseEx>
+      <CollapseEx buttonText="Chess ♘" className="col-span-2">
+        I am keen chess fan, player, and coach. You can find me on lichess
+        occasionally playing time controls that I would usually advice against
+        <iframe
+          src="https://lichess.org/embed/game/moT0Pij5?theme=auto&bg=auto"
+          width="600"
+          height="397"
+          style={{ margin: "12px", borderRadius: "8px" }}
+        ></iframe>
+      </CollapseEx>
     </main>
   );
 }

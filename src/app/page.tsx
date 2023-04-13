@@ -1,9 +1,12 @@
+"use client";
 import Link from "next/link";
 import { CollapseEx } from "./components/CollapseEx";
+import { ThemeChanger } from "./components/ThemeChanger/ThemeChanger";
 
 export default function Home() {
   return (
     <main className="min-h-screen">
+      <ThemeChanger />
       <div className="grid grid-cols-2">
         <div className="flex flex-col gap-1 p-12">
           <CollapseEx buttonText="Hello internet 👋">

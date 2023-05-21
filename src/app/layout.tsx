@@ -12,7 +12,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <head />
+      <head>
+        <link rel="icon" href="/favicon.png" sizes="any" />
+      </head>
       <body>
         <ThemeProvider>
           <CacheProvider>

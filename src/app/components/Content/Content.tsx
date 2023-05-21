@@ -29,7 +29,7 @@ export function Content({ children }: { children: React.ReactNode }) {
           transition={{ delay: 2 }}
           style={{ opacity: 0 }}
         >
-          <ListItem>Test-Driven Development</ListItem>
+          <ListItem>Test Driven Development</ListItem>
         </motion.div>
         <motion.div
           animate={{ opacity: 1 }}

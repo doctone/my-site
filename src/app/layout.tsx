@@ -12,7 +12,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <head />
+      <head>
+        <link rel="icon" href="/favicon.png" sizes="any" />
+        <title>Sam James - Software Engineer</title>
+      </head>
       <body>
         <ThemeProvider>
           <CacheProvider>

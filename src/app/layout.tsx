@@ -14,6 +14,7 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <link rel="icon" href="/favicon.png" sizes="any" />
+        <title>Sam James - Software Engineer</title>
       </head>
       <body>
         <ThemeProvider>

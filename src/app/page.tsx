@@ -16,7 +16,7 @@ export default function Home() {
       >
         <Box display="flex-col" gap={2}>
           <Title>Sam James</Title>
-          <Content>dslfkjdskl</Content>
+          <Content />
         </Box>
       </Box>
     </main>

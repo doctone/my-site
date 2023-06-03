@@ -1,6 +1,7 @@
 import { Box, List, ListItem, Text } from "@chakra-ui/react";
 import { motion } from "framer-motion";
 import React from "react";
+import Link from "next/link";
 
 export function Content() {
   return (
@@ -50,6 +51,13 @@ export function Content() {
           <ListItem>
             <Text fontSize="1xl">AWS, Docker, Terraform, Kubernetes</Text>
           </ListItem>
+        </motion.div>
+        <motion.div
+          animate={{ opacity: 1 }}
+          transition={{ delay: 2.5 }}
+          style={{ opacity: 0 }}
+        >
+          <Link href="about">About me</Link>
         </motion.div>
       </List>
     </Box>

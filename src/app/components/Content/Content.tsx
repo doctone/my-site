@@ -16,10 +16,7 @@ export function Content() {
           style={{ opacity: 0 }}
         >
           <ListItem>
-            <Text fontSize="2xl">Scalable, Domain Driven Component design</Text>
-          </ListItem>
-          <ListItem>
-            <Text fontSize="1xl">Typescript, React, CSS</Text>
+            <Text fontSize="2xl">Scalable, Domain Driven Design</Text>
           </ListItem>
         </motion.div>
         <motion.div
@@ -28,27 +25,16 @@ export function Content() {
           style={{ opacity: 0 }}
         >
           <ListItem>
-            <Text fontSize="2xl">APIs, Event Driven Architecture</Text>
-          </ListItem>
-          <ListItem>
-            <Text fontSize="1xl">Node, Express, SQL, postgres</Text>
+            <Text fontSize="2xl">Test Driven Development</Text>
           </ListItem>
         </motion.div>
-        <motion.div
-          animate={{ opacity: 1 }}
-          transition={{ delay: 2 }}
-          style={{ opacity: 0 }}
-        ></motion.div>
         <motion.div
           animate={{ opacity: 1 }}
           transition={{ delay: 2.5 }}
           style={{ opacity: 0 }}
         >
           <ListItem>
-            <Text fontSize="2xl">Devops</Text>
-          </ListItem>
-          <ListItem>
-            <Text fontSize="1xl">AWS, Docker, Terraform, Kubernetes</Text>
+            <Text fontSize="2xl">Node, Typescript, React, AWS, Kubernetes</Text>
           </ListItem>
         </motion.div>
       </List>

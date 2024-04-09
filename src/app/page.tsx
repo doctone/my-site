@@ -9,12 +9,13 @@ export default function Home() {
     <main className="min-h-screen">
       <ThemeChanger />
       <Box
-        alignItems="center"
+        alignItems="flex-start"
         justifyContent="center"
         display="flex"
         minHeight="inherit"
+        margin={4}
       >
-        <Box display="flex-col" gap={2}>
+        <Box display="flex" flexDirection="column" alignItems="center" gap={2}>
           <Title>Sam James</Title>
           <Content />
         </Box>

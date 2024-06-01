@@ -1,4 +1,3 @@
-/* eslint-disable react/no-unescaped-entities */
 import { Box, Text } from "@chakra-ui/react";
 import Link from "next/link";
 import React from "react";
@@ -8,22 +7,22 @@ import { motion } from "framer-motion";
 export function Content() {
   return (
     <Box
-      display="flex"
-      flexDirection="column"
-      marginTop={6}
+      // display="flex"
+      // flexDirection="column"
+      // marginTop={6}
       maxWidth="60%"
-      alignItems={["center", "center", "flex-start"]}
-      // alignItems="center"
-      justifyContent="center"
-      gap={4}
+      alignItems="center"
+      // // alignItems="center"
+      // justifyContent="center"
+      // gap={4}
     >
       <Text fontSize="3xl">About</Text>
-      <Text>
+      {/* <Text>
         Hi! I'm Sam, a software engineer based in the UK. I currently work for a
         Data Infrastructure and Analytics platform based in the US. My current
         project is building a user experience for Private Equity firms to manage
         their Carbon Accounting. Check out a preview below:
-      </Text>
+      </Text> */}
       <Box display="flex" justifyContent="center" maxWidth="80%">
         <iframe
           src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7153441244734472192?compact=1"
@@ -34,8 +33,8 @@ export function Content() {
         ></iframe>
       </Box>
       <Text>
-        I'm most familiar with the world of Typescript, Node, React, AWS, Docker
-        and all the fairly standard full-stack shenanigans
+        I&apos;m most familiar with the world of Typescript, Node, React, AWS,
+        Docker and all the fairly standard full-stack shenanigans
       </Text>
       <Text>
         I love building software that can stand the test of time. Software that
@@ -54,19 +53,19 @@ export function Content() {
         </Link>
       </Text>
       <Text>
-        I'm always trying to learn new things and push my thinking capacity to
-        the limit ( not that there's much capacity left after looking after my 3
-        kids ). But I'm almost always working through a course, or trying
-        something new.
+        I&apos;m always trying to learn new things and push my thinking capacity
+        to the limit ( not that there&apos;s much capacity left after looking
+        after my 3 kids ). But I&apos;m almost always working through a course,
+        or trying something new.
       </Text>
       <Text fontSize="3xl">Fun Facts</Text>
       <Text>
         In my previous career I was a professional Jazz Pianist. You can check
-        out some stuff I've played on spotify
+        out some stuff I&apos;ve played on spotify
       </Text>
       <Text>
-        You can often find me playing chess on lichess.org. I'm a fan of the
-        King's Indian Defense, and the Italian Gioco Piano opening.
+        You can often find me playing chess on lichess.org. I&apos;m a fan of
+        the King&apos;s Indian Defense, and the Italian Gioco Piano opening.
       </Text>
       <Text fontSize="3xl">Get In Touch</Text>
       <Box display="flex" gap={2}>

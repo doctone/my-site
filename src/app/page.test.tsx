@@ -6,6 +6,6 @@ describe("page", () => {
     expect.assertions(1);
 
     render(<Home />);
-    expect(screen.getByText("Sam James")).toBeVisible();
+    expect(screen.getByText(/Hello, I'm Sam/i)).toBeVisible();
   });
 });

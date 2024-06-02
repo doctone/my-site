@@ -4,6 +4,7 @@ import { Content } from "./components/Content/Content";
 import { Title } from "./components/TItle/Title";
 import { Space_Mono } from "next/font/google";
 import { useEffect, useMemo, useState } from "react";
+import { motion } from "framer-motion";
 
 const inter = Space_Mono({
   subsets: ["latin"],
@@ -14,12 +15,15 @@ export default function Home() {
   const funFacts = useMemo(() => {
     return [
       "I enjoy teaching my kids chess",
-      "I enjoy both traditional more modern jazz",
+      "I love listening to music that's not taylor swift",
+      "I learn by breaking things, and then fixing them",
+      "Event-Driven Architecture is my jam",
       "I was a jazz pianist in my previous career",
-      "I don't get time to watch as many films as I'd like to",
+      "I am huge Coen Brothers fan",
       "I love test-driven development",
-      "my wife is awesome",
       "most saturdays are for DIY and playing with my children",
+      "my wife is awesome, she's a dancer and a mother",
+      "I'm a big fan of Domain Driven Design",
     ];
   }, []);
   const [factNumber, setFactNumber] = useState(0);
@@ -27,7 +31,7 @@ export default function Home() {
   useEffect(() => {
     const interval = setInterval(() => {
       setFactNumber((factNumber + 1) % funFacts.length);
-    }, 2000);
+    }, 3000);
 
     return () => clearInterval(interval);
   }, [funFacts, setFactNumber, factNumber]);
@@ -51,8 +55,15 @@ export default function Home() {
         >
           <Title>Hello, I&apos;m Sam</Title>
           <Text fontSize="xl" fontWeight={200}>
-            {" "}
-            {funFacts[factNumber]}
+            <motion.div
+              key={factNumber}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.5 }}
+            >
+              {funFacts[factNumber]}
+            </motion.div>
           </Text>
           <Divider margin={[5, 10]} />
           <Text>

@@ -5,6 +5,7 @@ import { Title } from "./components/TItle/Title";
 import { Space_Mono } from "next/font/google";
 import { useEffect, useMemo, useState } from "react";
 import { motion } from "framer-motion";
+import { SocialIcon } from "react-social-icons";
 
 const inter = Space_Mono({
   subsets: ["latin"],
@@ -49,7 +50,7 @@ export default function Home() {
           display="flex"
           flexDirection="column"
           alignItems="center"
-          gap={2}
+          gap={8}
           height="100vh"
           width={["100%", "70%"]}
         >
@@ -72,7 +73,24 @@ export default function Home() {
             current project is building a user experience for Private Equity
             firms to manage their Carbon Accounting. Check out a preview below:
           </Text>
+          <Box display="flex" justifyContent="center" maxWidth="80%">
+            <iframe
+              src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7153441244734472192?compact=1"
+              height="399"
+              width="710"
+              allowFullScreen
+              title="Embedded post"
+            ></iframe>
+          </Box>
         </Box>
+        {/* <motion.div
+          drag
+          dragConstraints={{ left: 0, right: 0, top: 0, bottom: 0 }}
+          dragTransition={{ bounceStiffness: 500, bounceDamping: 20 }}
+          dragElastic={1}
+        >
+          <SocialIcon url="https://github.com/doctone" />
+        </motion.div> */}
         <Divider sx={{ border: "1px solid black" }} />
       </Box>
     </main>

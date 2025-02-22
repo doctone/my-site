@@ -6,6 +6,7 @@ import { Space_Mono } from "next/font/google";
 import { useEffect, useMemo, useState } from "react";
 import { motion } from "framer-motion";
 import { SocialIcon } from "react-social-icons";
+import Link from "next/link";
 
 const inter = Space_Mono({
   subsets: ["latin"],
@@ -50,7 +51,7 @@ export default function Home() {
           display="flex"
           flexDirection="column"
           alignItems="center"
-          gap={8}
+          gap={1}
           height="100vh"
           width={["100%", "70%"]}
         >
@@ -68,10 +69,10 @@ export default function Home() {
           </Text>
           <Divider margin={[5, 10]} />
           <Text>
-            I am a software engineer based in the UK. I currently work for a
-            Data Infrastructure and Analytics platform based in the US. My
-            current project is building a user experience for Private Equity
-            firms to manage their Carbon Accounting. Check out a preview below:
+            I am a software engineer based in the UK. I recently worked for a
+            Data Infrastructure and Analytics platform based in the US. One of
+            my projects was building a user experience for Private Equity firms
+            to manage their Carbon Accounting. Check out a preview below:
           </Text>
           <Box display="flex" justifyContent="center" maxWidth="80%">
             <iframe
@@ -82,6 +83,28 @@ export default function Home() {
               title="Embedded post"
             ></iframe>
           </Box>
+          <Divider
+            sx={{ marginY: 4, border: "1px solid white", maxWidth: "60%" }}
+          />
+          <Box
+            width="100%"
+            display="flex"
+            flexDirection="column"
+            justifyContent="flex-start"
+            gap={2}
+          >
+            <Text fontSize="3xl">Reach out</Text>
+            <Text>
+              I am now working in the EdTech space building event driven
+              architectures with a large team of stellar engineers. Another
+              recent project of mine was building an Ai powered running planner:
+            </Text>
+            <Link href={"https://www.fastfeet.run"}>www.fastfeet.run</Link>
+
+            <Text>Checkout my stuff on github:</Text>
+            <SocialIcon url="https://github.com/doctone" />
+            <Text>or feel to reach my directly on samjojames@gmail.com</Text>
+          </Box>
         </Box>
         {/* <motion.div
           drag
@@ -89,7 +112,6 @@ export default function Home() {
           dragTransition={{ bounceStiffness: 500, bounceDamping: 20 }}
           dragElastic={1}
         >
-          <SocialIcon url="https://github.com/doctone" />
         </motion.div> */}
         <Divider sx={{ border: "1px solid black" }} />
       </Box>

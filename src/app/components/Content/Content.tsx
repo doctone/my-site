@@ -6,23 +6,8 @@ import { motion } from "framer-motion";
 
 export function Content() {
   return (
-    <Box
-      // display="flex"
-      // flexDirection="column"
-      // marginTop={6}
-      maxWidth="60%"
-      alignItems="center"
-      // // alignItems="center"
-      // justifyContent="center"
-      // gap={4}
-    >
+    <Box maxWidth="60%" alignItems="center">
       <Text fontSize="3xl">About</Text>
-      {/* <Text>
-        Hi! I'm Sam, a software engineer based in the UK. I currently work for a
-        Data Infrastructure and Analytics platform based in the US. My current
-        project is building a user experience for Private Equity firms to manage
-        their Carbon Accounting. Check out a preview below:
-      </Text> */}
       <Box display="flex" justifyContent="center" maxWidth="80%">
         <iframe
           src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7153441244734472192?compact=1"

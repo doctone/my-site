@@ -13,8 +13,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <link rel="icon" href="/favicon.png" sizes="any" />
+        <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+        <link rel="icon" href="/favicon.png" sizes="any" type="image/png" />
+        <link rel="apple-touch-icon" href="/favicon.png" />
         <title>Sam James - Software Engineer</title>
+        <meta name="description" content="UK-based software engineer building AI systems for planning permission, with experience in fintech, e-commerce, and data analytics." />
       </head>
       <body>
         <ThemeProvider>

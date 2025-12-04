@@ -33,10 +33,7 @@ export default function Home() {
   return (
     <main className={styles.main}>
       {/* Hero Section */}
-      <motion.section
-        className={styles.hero}
-        style={{ opacity, scale }}
-      >
+      <motion.section className={styles.hero} style={{ opacity, scale }}>
         <div className={styles.heroContent}>
           <motion.div
             className={styles.eyebrow}
@@ -82,7 +79,6 @@ export default function Home() {
             animate={{ opacity: 1 }}
             transition={{ delay: 1.2, duration: 0.6 }}
           >
-            <span>SCROLL</span>
             <div className={styles.scrollLine} />
           </motion.div>
         </div>
@@ -114,10 +110,11 @@ export default function Home() {
               </div>
               <div className={styles.contentSidebar}>
                 <p className={styles.bodyText}>
-                  UK-based software engineer. Built data infrastructure for US analytics
-                  platforms, modernized payment systems for a major e-commerce company,
-                  and delivered carbon accounting tools for Private Equity firms. Now
-                  building AI systems to transform planning permission in the UK.
+                  UK-based software engineer. Built data infrastructure for US
+                  analytics platforms, modernized payment systems for a major
+                  e-commerce company, and delivered carbon accounting tools for
+                  Private Equity firms. Now building AI systems to transform
+                  planning permission in the UK.
                 </p>
               </div>
             </div>
@@ -139,11 +136,13 @@ export default function Home() {
             >
               <div className={styles.projectHeader}>
                 <span className={styles.projectLabel}>DATA & ANALYTICS</span>
-                <h3 className={styles.projectTitle}>Carbon Accounting Platform</h3>
+                <h3 className={styles.projectTitle}>
+                  Carbon Accounting Platform
+                </h3>
                 <p className={styles.projectDescription}>
-                  Built comprehensive UX for Private Equity firms to track and manage
-                  their carbon footprint across portfolio companies. Event-driven
-                  architecture with real-time data synchronization.
+                  Built comprehensive UX for Private Equity firms to track and
+                  manage their carbon footprint across portfolio companies.
+                  Event-driven architecture with real-time data synchronization.
                 </p>
               </div>
               <div className={styles.projectVideo}>
@@ -166,13 +165,17 @@ export default function Home() {
               className={styles.projectCard}
             >
               <div className={styles.projectHeader}>
-                <span className={styles.projectLabel}>FINTECH · E-COMMERCE</span>
-                <h3 className={styles.projectTitle}>Enterprise Payments System</h3>
+                <span className={styles.projectLabel}>
+                  FINTECH · E-COMMERCE
+                </span>
+                <h3 className={styles.projectTitle}>
+                  Enterprise Payments System
+                </h3>
                 <p className={styles.projectDescription}>
-                  Architected and delivered a scalable payments infrastructure for a
-                  major e-commerce platform. Handled millions of transactions with
-                  99.99% uptime, integrating multiple payment providers and fraud
-                  detection systems.
+                  Architected and delivered a scalable payments infrastructure
+                  for a major e-commerce platform. Handled millions of
+                  transactions with 99.99% uptime, integrating multiple payment
+                  providers and fraud detection systems.
                 </p>
               </div>
               <div className={styles.projectTags}>
@@ -201,15 +204,17 @@ export default function Home() {
                 <h3 className={styles.headline}>
                   Building AI for
                   <br />
-                  <span className={styles.headlineAccent}>Planning Permission</span>
+                  <span className={styles.headlineAccent}>
+                    Planning Permission
+                  </span>
                 </h3>
               </div>
               <div className={styles.contentSidebar}>
                 <p className={styles.bodyText}>
-                  At Xylo we&apos;re transforming Local Government Planning services
-                  with AI. Building intelligent systems that accelerate planning
-                  decisions, helping deliver homes faster across the UK and addressing
-                  the housing crisis at scale.
+                  At Xylo we&apos;re transforming Local Government Planning
+                  services with AI. Building intelligent systems that accelerate
+                  planning decisions, helping deliver homes faster across the UK
+                  and addressing the housing crisis at scale.
                 </p>
                 <div className={styles.currentWorkHighlights}>
                   <div className={styles.highlight}>
@@ -218,7 +223,10 @@ export default function Home() {
                   </div>
                   <div className={styles.highlight}>
                     <span className={styles.highlightLabel}>Side Project:</span>
-                    <Link href="https://www.fastfeet.run" className={styles.projectLink}>
+                    <Link
+                      href="https://www.fastfeet.run"
+                      className={styles.projectLink}
+                    >
                       <span>FastFeet.run - AI Running Planner</span>
                       <span className={styles.arrow}>→</span>
                     </Link>
@@ -245,7 +253,10 @@ export default function Home() {
             <div className={styles.contactGrid}>
               <div className={styles.contactItem}>
                 <div className={styles.contactLabel}>EMAIL</div>
-                <a href="mailto:samjojames@gmail.com" className={styles.contactLink}>
+                <a
+                  href="mailto:samjojames@gmail.com"
+                  className={styles.contactLink}
+                >
                   samjojames@gmail.com
                 </a>
               </div>

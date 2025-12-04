@@ -1,0 +1,506 @@
+.main {
+  min-height: 100vh;
+  position: relative;
+}
+
+/* Hero Section */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.heroContent {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.heroBackground {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: radial-gradient(
+    circle at 50% 50%,
+    var(--color-surface) 0%,
+    var(--color-bg) 100%
+  );
+}
+
+.gridOverlay {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(var(--color-text-dim) 1px, transparent 1px),
+    linear-gradient(90deg, var(--color-text-dim) 1px, transparent 1px);
+  background-size: 50px 50px;
+  opacity: 0.03;
+  animation: gridMove 20s linear infinite;
+}
+
+@keyframes gridMove {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(50px, 50px);
+  }
+}
+
+.eyebrow {
+  font-family: 'Courier Prime', monospace;
+  font-size: 0.875rem;
+  letter-spacing: 0.15em;
+  color: var(--color-accent);
+  margin-bottom: 2rem;
+  font-weight: 700;
+}
+
+.heroTitle {
+  font-family: 'Archivo Black', sans-serif;
+  font-size: clamp(4rem, 15vw, 12rem);
+  line-height: 0.9;
+  letter-spacing: -0.02em;
+  margin: 0;
+  color: var(--color-text);
+  text-transform: uppercase;
+  position: relative;
+  display: inline-block;
+}
+
+.heroTitle::after {
+  content: 'SAM JAMES';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  color: var(--color-accent);
+  opacity: 0.1;
+  transform: translate(4px, 4px);
+  z-index: -1;
+  white-space: nowrap;
+}
+
+.heroSubtitle {
+  margin-top: 3rem;
+  font-family: 'Work Sans', sans-serif;
+  font-size: clamp(1rem, 2vw, 1.5rem);
+  color: var(--color-text-dim);
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  font-weight: 300;
+  font-style: italic;
+  min-height: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.factText {
+  display: block;
+}
+
+.scrollIndicator {
+  position: absolute;
+  bottom: 4rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  font-family: 'Courier Prime', monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  color: var(--color-text-dim);
+}
+
+.scrollLine {
+  width: 1px;
+  height: 60px;
+  background: linear-gradient(
+    to bottom,
+    var(--color-accent),
+    transparent
+  );
+  animation: scrollPulse 2s ease-in-out infinite;
+}
+
+@keyframes scrollPulse {
+  0%, 100% {
+    opacity: 0.3;
+    transform: translateY(0);
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(10px);
+  }
+}
+
+/* Sections */
+.section {
+  padding: clamp(4rem, 10vw, 8rem) 0;
+  position: relative;
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.sectionLabel {
+  font-family: 'Courier Prime', monospace;
+  font-size: 0.875rem;
+  letter-spacing: 0.15em;
+  color: var(--color-accent);
+  margin-bottom: 3rem;
+  font-weight: 700;
+}
+
+.contentGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: start;
+}
+
+@media (max-width: 768px) {
+  .contentGrid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}
+
+.contentMain {
+  position: relative;
+}
+
+.headline {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(2.5rem, 6vw, 5rem);
+  line-height: 1;
+  letter-spacing: 0.02em;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.headlineAccent {
+  color: var(--color-accent);
+  position: relative;
+  display: inline-block;
+}
+
+.headlineAccent::before {
+  content: '';
+  position: absolute;
+  bottom: 0.1em;
+  left: 0;
+  width: 100%;
+  height: 0.15em;
+  background: var(--color-accent);
+  opacity: 0.2;
+}
+
+.contentSidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding-top: 1rem;
+}
+
+.bodyText {
+  font-size: 1.125rem;
+  line-height: 1.8;
+  color: var(--color-text-dim);
+  margin: 0;
+}
+
+.currentWorkHighlights {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.highlight {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.highlightLabel {
+  font-family: 'Courier Prime', monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  color: var(--color-accent);
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.highlight > span:not(.highlightLabel) {
+  color: var(--color-text);
+  font-size: 1rem;
+}
+
+/* Project Section */
+.projectSection {
+  padding: clamp(4rem, 10vw, 8rem) 0;
+  background: var(--color-surface);
+  position: relative;
+}
+
+.projectSection::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--color-accent),
+    transparent
+  );
+}
+
+.projectsGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+  margin-top: 3rem;
+}
+
+.projectCard {
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 3rem;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  background: var(--color-bg);
+}
+
+.projectCard:hover {
+  border-color: var(--color-accent);
+  transform: translateY(-4px);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+.projectHeader {
+  margin-bottom: 2rem;
+}
+
+.projectLabel {
+  font-family: 'Courier Prime', monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  color: var(--color-accent);
+  display: block;
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+.projectTitle {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(2rem, 4vw, 3rem);
+  margin: 0 0 1rem 0;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.projectDescription {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--color-text-dim);
+  margin: 0;
+}
+
+.projectVideo {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  background: var(--color-bg);
+  margin-top: 2rem;
+}
+
+.iframe {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  border: none;
+}
+
+.projectTags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 2rem;
+}
+
+.tag {
+  font-family: 'Courier Prime', monospace;
+  font-size: 0.75rem;
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--color-accent);
+  color: var(--color-accent);
+  letter-spacing: 0.05em;
+  transition: all 0.3s ease;
+}
+
+.tag:hover {
+  background: var(--color-accent);
+  color: var(--color-bg);
+}
+
+.projectLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: 'Courier Prime', monospace;
+  font-size: 1rem;
+  color: var(--color-accent);
+  text-decoration: none;
+  transition: all 0.3s ease;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid transparent;
+}
+
+.projectLink:hover {
+  color: var(--color-accent-dim);
+  border-bottom-color: var(--color-accent);
+}
+
+.arrow {
+  transition: transform 0.3s ease;
+  font-size: 1.5rem;
+}
+
+.projectLink:hover .arrow {
+  transform: translateX(8px);
+}
+
+/* Contact Section */
+.contactSection {
+  padding: clamp(6rem, 12vw, 10rem) 0;
+  background: var(--color-bg);
+  position: relative;
+}
+
+.contactContent {
+  text-align: center;
+}
+
+.contactTitle {
+  font-family: 'Archivo Black', sans-serif;
+  font-size: clamp(3rem, 8vw, 6rem);
+  line-height: 1;
+  letter-spacing: -0.02em;
+  margin: 0 0 4rem 0;
+  text-transform: uppercase;
+  position: relative;
+  display: inline-block;
+}
+
+.contactTitle::after {
+  content: '';
+  position: absolute;
+  bottom: -0.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60%;
+  height: 4px;
+  background: var(--color-accent);
+}
+
+.contactGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 3rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.contactItem {
+  text-align: left;
+  padding: 2rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.contactItem:hover {
+  border-color: var(--color-accent);
+  transform: translateY(-4px);
+  background: var(--color-surface);
+}
+
+.contactLabel {
+  font-family: 'Courier Prime', monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  color: var(--color-accent);
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+.contactLink {
+  font-size: 1.25rem;
+  color: var(--color-text);
+  text-decoration: none;
+  transition: color 0.3s ease;
+  display: block;
+  word-break: break-word;
+}
+
+.contactLink:hover {
+  color: var(--color-accent);
+}
+
+/* Footer */
+.footer {
+  padding: 3rem 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.footerContent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  font-family: 'Courier Prime', monospace;
+  font-size: 0.875rem;
+  color: var(--color-text-dim);
+}
+
+.footerDivider {
+  opacity: 0.3;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .heroTitle::after {
+    display: none;
+  }
+
+  .projectCard {
+    padding: 2rem 1.5rem;
+  }
+
+  .contactGrid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .scrollIndicator {
+    display: none;
+  }
+}

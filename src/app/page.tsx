@@ -1,120 +1,281 @@
 "use client";
-import { Box, Divider, Text } from "@chakra-ui/react";
-import { Content } from "./components/Content/Content";
-import { Title } from "./components/TItle/Title";
-import { Space_Mono } from "next/font/google";
 import { useEffect, useMemo, useState } from "react";
-import { motion } from "framer-motion";
-import { SocialIcon } from "react-social-icons";
+import { motion, useScroll, useTransform } from "framer-motion";
 import Link from "next/link";
-
-const inter = Space_Mono({
-  subsets: ["latin"],
-  weight: ["400"],
-});
+import styles from "./page.module.css";
 
 export default function Home() {
   const funFacts = useMemo(() => {
     return [
-      "I enjoy teaching my kids chess",
-      "I love listening to music that's not taylor swift",
-      "I learn by breaking things, and then fixing them",
-      "Event-Driven Architecture is my jam",
-      "I was a jazz pianist in my previous career",
-      "I am huge Coen Brothers fan",
-      "I love test-driven development",
-      "most saturdays are for DIY and playing with my children",
-      "my wife is awesome, she's a dancer and a mother",
-      "I'm a big fan of Domain Driven Design",
+      "Teaching my kids chess on weekends",
+      "Former jazz pianist turned software engineer",
+      "I learn by breaking things, then fixing them",
+      "Event-Driven Architecture enthusiast",
+      "Huge Coen Brothers fan",
+      "Test-driven development advocate",
+      "Most Saturdays are for DIY and family time",
+      "Married to a dancer and amazing mother",
+      "Building systems that solve real problems",
     ];
   }, []);
   const [factNumber, setFactNumber] = useState(0);
+  const { scrollYProgress } = useScroll();
+  const opacity = useTransform(scrollYProgress, [0, 0.3], [1, 0]);
+  const scale = useTransform(scrollYProgress, [0, 0.3], [1, 0.95]);
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setFactNumber((factNumber + 1) % funFacts.length);
+      setFactNumber((prev) => (prev + 1) % funFacts.length);
     }, 3000);
-
     return () => clearInterval(interval);
-  }, [funFacts, setFactNumber, factNumber]);
+  }, [funFacts]);
+
   return (
-    <main className={inter.className}>
-      <Box
-        display="flex"
-        flexDirection="column"
-        justifyContent="center"
-        alignItems="center"
-        minHeight="inherit"
-        margin={4}
+    <main className={styles.main}>
+      {/* Hero Section */}
+      <motion.section
+        className={styles.hero}
+        style={{ opacity, scale }}
       >
-        <Box
-          display="flex"
-          flexDirection="column"
-          alignItems="center"
-          gap={1}
-          height="100vh"
-          width={["100%", "70%"]}
-        >
-          <Title>Hello, I&apos;m Sam</Title>
-          <Text fontSize="xl" fontWeight={200}>
+        <div className={styles.heroContent}>
+          <motion.div
+            className={styles.eyebrow}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2, duration: 0.6 }}
+          >
+            SOFTWARE ENGINEER · UK
+          </motion.div>
+
+          <motion.h1
+            className={styles.heroTitle}
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.4, duration: 0.8 }}
+          >
+            SAM
+            <br />
+            JAMES
+          </motion.h1>
+
+          <motion.div
+            className={styles.heroSubtitle}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.8, duration: 0.6 }}
+          >
             <motion.div
               key={factNumber}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.5 }}
+              className={styles.factText}
             >
               {funFacts[factNumber]}
             </motion.div>
-          </Text>
-          <Divider margin={[5, 10]} />
-          <Text>
-            I am a software engineer based in the UK. I recently worked for a
-            Data Infrastructure and Analytics platform based in the US. One of
-            my projects was building a user experience for Private Equity firms
-            to manage their Carbon Accounting. Check out a preview below:
-          </Text>
-          <Box display="flex" justifyContent="center" maxWidth="80%">
-            <iframe
-              src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7153441244734472192?compact=1"
-              height="399"
-              width="710"
-              allowFullScreen
-              title="Embedded post"
-            ></iframe>
-          </Box>
-          <Divider
-            sx={{ marginY: 4, border: "1px solid white", maxWidth: "60%" }}
-          />
-          <Box
-            width="100%"
-            display="flex"
-            flexDirection="column"
-            justifyContent="flex-start"
-            gap={2}
-          >
-            <Text fontSize="3xl">Reach out</Text>
-            <Text>
-              I am now working in the EdTech space building event driven
-              architectures with a large team of stellar engineers. Another
-              recent project of mine was building an Ai powered running planner:
-            </Text>
-            <Link href={"https://www.fastfeet.run"}>www.fastfeet.run</Link>
+          </motion.div>
 
-            <Text>Checkout my stuff on github:</Text>
-            <SocialIcon url="https://github.com/doctone" />
-            <Text>or feel to reach my directly on samjojames@gmail.com</Text>
-          </Box>
-        </Box>
-        {/* <motion.div
-          drag
-          dragConstraints={{ left: 0, right: 0, top: 0, bottom: 0 }}
-          dragTransition={{ bounceStiffness: 500, bounceDamping: 20 }}
-          dragElastic={1}
-        >
-        </motion.div> */}
-        <Divider sx={{ border: "1px solid black" }} />
-      </Box>
+          <motion.div
+            className={styles.scrollIndicator}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 1.2, duration: 0.6 }}
+          >
+            <span>SCROLL</span>
+            <div className={styles.scrollLine} />
+          </motion.div>
+        </div>
+
+        <div className={styles.heroBackground}>
+          <div className={styles.gridOverlay} />
+        </div>
+      </motion.section>
+
+      {/* About Section */}
+      <section className={styles.section}>
+        <div className={styles.container}>
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.8 }}
+          >
+            <h2 className={styles.sectionLabel}>[ 01 ]</h2>
+            <div className={styles.contentGrid}>
+              <div className={styles.contentMain}>
+                <h3 className={styles.headline}>
+                  Building digital
+                  <br />
+                  <span className={styles.headlineAccent}>experiences</span>
+                  <br />
+                  that matter
+                </h3>
+              </div>
+              <div className={styles.contentSidebar}>
+                <p className={styles.bodyText}>
+                  UK-based software engineer. Built data infrastructure for US analytics
+                  platforms, modernized payment systems for a major e-commerce company,
+                  and delivered carbon accounting tools for Private Equity firms. Now
+                  building AI systems to transform planning permission in the UK.
+                </p>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Project Showcase */}
+      <section className={styles.projectSection}>
+        <div className={styles.container}>
+          <h2 className={styles.sectionLabel}>SELECTED WORK</h2>
+          <div className={styles.projectsGrid}>
+            <motion.div
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.8 }}
+              className={styles.projectCard}
+            >
+              <div className={styles.projectHeader}>
+                <span className={styles.projectLabel}>DATA & ANALYTICS</span>
+                <h3 className={styles.projectTitle}>Carbon Accounting Platform</h3>
+                <p className={styles.projectDescription}>
+                  Built comprehensive UX for Private Equity firms to track and manage
+                  their carbon footprint across portfolio companies. Event-driven
+                  architecture with real-time data synchronization.
+                </p>
+              </div>
+              <div className={styles.projectVideo}>
+                <iframe
+                  src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7153441244734472192?compact=1"
+                  height="399"
+                  width="710"
+                  allowFullScreen
+                  title="Embedded post"
+                  className={styles.iframe}
+                ></iframe>
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className={styles.projectCard}
+            >
+              <div className={styles.projectHeader}>
+                <span className={styles.projectLabel}>FINTECH · E-COMMERCE</span>
+                <h3 className={styles.projectTitle}>Enterprise Payments System</h3>
+                <p className={styles.projectDescription}>
+                  Architected and delivered a scalable payments infrastructure for a
+                  major e-commerce platform. Handled millions of transactions with
+                  99.99% uptime, integrating multiple payment providers and fraud
+                  detection systems.
+                </p>
+              </div>
+              <div className={styles.projectTags}>
+                <span className={styles.tag}>Microservices</span>
+                <span className={styles.tag}>Event Sourcing</span>
+                <span className={styles.tag}>High Availability</span>
+                <span className={styles.tag}>PCI Compliance</span>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Current Work */}
+      <section className={styles.section}>
+        <div className={styles.container}>
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.8 }}
+          >
+            <h2 className={styles.sectionLabel}>[ 02 ]</h2>
+            <div className={styles.contentGrid}>
+              <div className={styles.contentMain}>
+                <h3 className={styles.headline}>
+                  Building AI for
+                  <br />
+                  <span className={styles.headlineAccent}>Planning Permission</span>
+                </h3>
+              </div>
+              <div className={styles.contentSidebar}>
+                <p className={styles.bodyText}>
+                  At Xylo we&apos;re transforming Local Government Planning services
+                  with AI. Building intelligent systems that accelerate planning
+                  decisions, helping deliver homes faster across the UK and addressing
+                  the housing crisis at scale.
+                </p>
+                <div className={styles.currentWorkHighlights}>
+                  <div className={styles.highlight}>
+                    <span className={styles.highlightLabel}>Previous:</span>
+                    <span>EdTech · Event-Driven Architectures</span>
+                  </div>
+                  <div className={styles.highlight}>
+                    <span className={styles.highlightLabel}>Side Project:</span>
+                    <Link href="https://www.fastfeet.run" className={styles.projectLink}>
+                      <span>FastFeet.run - AI Running Planner</span>
+                      <span className={styles.arrow}>→</span>
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Contact Section */}
+      <section className={styles.contactSection}>
+        <div className={styles.container}>
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.8 }}
+            className={styles.contactContent}
+          >
+            <h2 className={styles.contactTitle}>Let&apos;s Connect</h2>
+
+            <div className={styles.contactGrid}>
+              <div className={styles.contactItem}>
+                <div className={styles.contactLabel}>EMAIL</div>
+                <a href="mailto:samjojames@gmail.com" className={styles.contactLink}>
+                  samjojames@gmail.com
+                </a>
+              </div>
+
+              <div className={styles.contactItem}>
+                <div className={styles.contactLabel}>GITHUB</div>
+                <a
+                  href="https://github.com/doctone"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={styles.contactLink}
+                >
+                  github.com/doctone
+                </a>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className={styles.footer}>
+        <div className={styles.container}>
+          <div className={styles.footerContent}>
+            <span>© 2024 Sam James</span>
+            <span className={styles.footerDivider}>·</span>
+            <span>Software Engineer</span>
+          </div>
+        </div>
+      </footer>
     </main>
   );
 }

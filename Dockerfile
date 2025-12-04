@@ -1,4 +1,4 @@
-FROM node:18-alpine AS build
+FROM node:24-alpine AS build
 # Install dependencies only when needed
 
 RUN apk add --no-cache libc6-compat
@@ -11,8 +11,8 @@ COPY . .
 
 RUN npm run build
 
-FROM node:18-alpine
-RUN apk update && apk upgrade && apk add dumb-init && adduser -D nextuser 
+FROM node:24-alpine
+RUN apk update && apk upgrade && apk add --no-cache dumb-init && adduser -D nextuser 
 
 WORKDIR /app
 

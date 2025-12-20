@@ -1,26 +1,23 @@
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Archivo+Black&family=Courier+Prime:ital,wght@0,400;0,700;1,400&family=Work+Sans:wght@300;400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=Inter:wght@400;500&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  --color-bg: #0a0a0a;
+  --color-bg: #111111;
   --color-surface: #1a1a1a;
-  --color-text: #ffffff;
-  --color-text-dim: #888888;
-  --color-accent: #00ff88;
-  --color-accent-dim: #00aa66;
-  --grid-size: 8px;
+  --color-text: #e5e5e5;
+  --color-text-dim: #737373;
+  --color-border: rgba(255, 255, 255, 0.08);
 }
 
 [data-theme='light'] {
-  --color-bg: #f5f5f5;
+  --color-bg: #fafafa;
   --color-surface: #ffffff;
-  --color-text: #0a0a0a;
-  --color-text-dim: #666666;
-  --color-accent: #ff0066;
-  --color-accent-dim: #cc0055;
+  --color-text: #171717;
+  --color-text-dim: #737373;
+  --color-border: rgba(0, 0, 0, 0.08);
 }
 
 * {
@@ -32,73 +29,12 @@
 body {
   color: var(--color-text);
   background: var(--color-bg);
-  font-family: 'Work Sans', sans-serif;
-  overflow-x: hidden;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
 }
 
-@keyframes glitch {
-  0% {
-    transform: translate(0);
-  }
-  20% {
-    transform: translate(-2px, 2px);
-  }
-  40% {
-    transform: translate(-2px, -2px);
-  }
-  60% {
-    transform: translate(2px, 2px);
-  }
-  80% {
-    transform: translate(2px, -2px);
-  }
-  100% {
-    transform: translate(0);
-  }
-}
-
-@keyframes slideIn {
-  from {
-    transform: translateY(30px);
-    opacity: 0;
-  }
-  to {
-    transform: translateY(0);
-    opacity: 1;
-  }
-}
-
-@keyframes fadeInUp {
-  from {
-    transform: translateY(20px);
-    opacity: 0;
-  }
-  to {
-    transform: translateY(0);
-    opacity: 1;
-  }
-}
-
-@keyframes scaleIn {
-  from {
-    transform: scale(0.9);
-    opacity: 0;
-  }
-  to {
-    transform: scale(1);
-    opacity: 1;
-  }
-}
-
-.animate-slide-in {
-  animation: slideIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-}
-
-.animate-fade-in-up {
-  animation: fadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-}
-
-.animate-scale-in {
-  animation: scaleIn 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+::selection {
+  background: var(--color-text);
+  color: var(--color-bg);
 }

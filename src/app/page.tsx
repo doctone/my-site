@@ -1,12 +1,18 @@
 "use client";
 import { useEffect, useMemo, useState } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion } from "framer-motion";
 import Link from "next/link";
 import styles from "./page.module.css";
 
+const fadeIn = {
+  initial: { opacity: 0, y: 20 },
+  animate: { opacity: 1, y: 0 },
+  transition: { duration: 0.6 },
+};
+
 export default function Home() {
-  const funFacts = useMemo(() => {
-    return [
+  const funFacts = useMemo(
+    () => [
       "Teaching my kids chess on weekends",
       "Former jazz pianist turned software engineer",
       "I learn by breaking things, then fixing them",
@@ -16,12 +22,10 @@ export default function Home() {
       "Most Saturdays are for DIY and family time",
       "Married to a dancer and amazing mother",
       "Building systems that solve real problems",
-    ];
-  }, []);
+    ],
+    []
+  );
   const [factNumber, setFactNumber] = useState(0);
-  const { scrollYProgress } = useScroll();
-  const opacity = useTransform(scrollYProgress, [0, 0.3], [1, 0]);
-  const scale = useTransform(scrollYProgress, [0, 0.3], [1, 0.95]);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -32,83 +36,56 @@ export default function Home() {
 
   return (
     <main className={styles.main}>
-      {/* Hero Section */}
-      <motion.section className={styles.hero} style={{ opacity, scale }}>
+      {/* Hero */}
+      <section className={styles.hero}>
         <div className={styles.heroContent}>
-          <motion.div
-            className={styles.eyebrow}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2, duration: 0.6 }}
-          >
-            SOFTWARE ENGINEER · UK
+          <motion.div className={styles.eyebrow} {...fadeIn}>
+            Software Engineer
           </motion.div>
 
           <motion.h1
             className={styles.heroTitle}
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.4, duration: 0.8 }}
+            transition={{ delay: 0.1, duration: 0.6 }}
           >
-            SAM
-            <br />
-            JAMES
+            Sam James
           </motion.h1>
 
           <motion.div
             className={styles.heroSubtitle}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ delay: 0.8, duration: 0.6 }}
+            transition={{ delay: 0.3, duration: 0.6 }}
           >
-            <motion.div
+            <motion.span
               key={factNumber}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-              transition={{ duration: 0.5 }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
               className={styles.factText}
             >
               {funFacts[factNumber]}
-            </motion.div>
-          </motion.div>
-
-          <motion.div
-            className={styles.scrollIndicator}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 1.2, duration: 0.6 }}
-          >
-            <div className={styles.scrollLine} />
+            </motion.span>
           </motion.div>
         </div>
+      </section>
 
-        <div className={styles.heroBackground}>
-          <div className={styles.gridOverlay} />
-        </div>
-      </motion.section>
-
-      {/* About Section */}
+      {/* About */}
       <section className={styles.section}>
         <div className={styles.container}>
           <motion.div
-            initial={{ opacity: 0, y: 40 }}
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.6 }}
           >
-            <h2 className={styles.sectionLabel}>[ 01 ]</h2>
             <div className={styles.contentGrid}>
-              <div className={styles.contentMain}>
-                <h3 className={styles.headline}>
-                  Building digital
-                  <br />
-                  <span className={styles.headlineAccent}>experiences</span>
-                  <br />
-                  that matter
-                </h3>
+              <div>
+                <h2 className={styles.headline}>
+                  Building digital experiences that matter
+                </h2>
               </div>
-              <div className={styles.contentSidebar}>
+              <div>
                 <p className={styles.bodyText}>
                   UK-based software engineer. Built data infrastructure for US
                   analytics platforms, modernized payment systems for a major
@@ -122,20 +99,20 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Project Showcase */}
+      {/* Projects */}
       <section className={styles.projectSection}>
         <div className={styles.container}>
-          <h2 className={styles.sectionLabel}>SELECTED WORK</h2>
+          <h2 className={styles.sectionLabel}>Selected Work</h2>
           <div className={styles.projectsGrid}>
-            <motion.div
-              initial={{ opacity: 0, y: 40 }}
+            <motion.article
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.8 }}
+              transition={{ duration: 0.6 }}
               className={styles.projectCard}
             >
               <div className={styles.projectHeader}>
-                <span className={styles.projectLabel}>DATA & ANALYTICS</span>
+                <span className={styles.projectLabel}>Data & Analytics</span>
                 <h3 className={styles.projectTitle}>
                   Carbon Accounting Platform
                 </h3>
@@ -151,23 +128,21 @@ export default function Home() {
                   height="399"
                   width="710"
                   allowFullScreen
-                  title="Embedded post"
+                  title="Carbon Accounting Platform demo"
                   className={styles.iframe}
-                ></iframe>
+                />
               </div>
-            </motion.div>
+            </motion.article>
 
-            <motion.div
-              initial={{ opacity: 0, y: 40 }}
+            <motion.article
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.8, delay: 0.2 }}
+              transition={{ duration: 0.6 }}
               className={styles.projectCard}
             >
               <div className={styles.projectHeader}>
-                <span className={styles.projectLabel}>
-                  FINTECH · E-COMMERCE
-                </span>
+                <span className={styles.projectLabel}>Fintech</span>
                 <h3 className={styles.projectTitle}>
                   Enterprise Payments System
                 </h3>
@@ -182,9 +157,8 @@ export default function Home() {
                 <span className={styles.tag}>Microservices</span>
                 <span className={styles.tag}>Event Sourcing</span>
                 <span className={styles.tag}>High Availability</span>
-                <span className={styles.tag}>PCI Compliance</span>
               </div>
-            </motion.div>
+            </motion.article>
           </div>
         </div>
       </section>
@@ -193,23 +167,18 @@ export default function Home() {
       <section className={styles.section}>
         <div className={styles.container}>
           <motion.div
-            initial={{ opacity: 0, y: 40 }}
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.6 }}
           >
-            <h2 className={styles.sectionLabel}>[ 02 ]</h2>
             <div className={styles.contentGrid}>
-              <div className={styles.contentMain}>
-                <h3 className={styles.headline}>
-                  Building AI for
-                  <br />
-                  <span className={styles.headlineAccent}>
-                    Planning Permission
-                  </span>
-                </h3>
+              <div>
+                <h2 className={styles.headline}>
+                  Building AI for Planning Permission
+                </h2>
               </div>
-              <div className={styles.contentSidebar}>
+              <div>
                 <p className={styles.bodyText}>
                   At Xylo we&apos;re transforming Local Government Planning
                   services with AI. Building intelligent systems that accelerate
@@ -218,16 +187,16 @@ export default function Home() {
                 </p>
                 <div className={styles.currentWorkHighlights}>
                   <div className={styles.highlight}>
-                    <span className={styles.highlightLabel}>Previous:</span>
-                    <span>EdTech · Event-Driven Architectures</span>
+                    <span className={styles.highlightLabel}>Previous</span>
+                    <span>EdTech, Event-Driven Architectures</span>
                   </div>
                   <div className={styles.highlight}>
-                    <span className={styles.highlightLabel}>Side Project:</span>
+                    <span className={styles.highlightLabel}>Side Project</span>
                     <Link
                       href="https://www.fastfeet.run"
                       className={styles.projectLink}
                     >
-                      <span>FastFeet.run - AI Running Planner</span>
+                      <span>FastFeet.run</span>
                       <span className={styles.arrow}>→</span>
                     </Link>
                   </div>
@@ -238,21 +207,20 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Contact Section */}
+      {/* Contact */}
       <section className={styles.contactSection}>
         <div className={styles.container}>
           <motion.div
-            initial={{ opacity: 0, y: 40 }}
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.6 }}
             className={styles.contactContent}
           >
-            <h2 className={styles.contactTitle}>Let&apos;s Connect</h2>
-
+            <h2 className={styles.contactTitle}>Get in Touch</h2>
             <div className={styles.contactGrid}>
               <div className={styles.contactItem}>
-                <div className={styles.contactLabel}>EMAIL</div>
+                <div className={styles.contactLabel}>Email</div>
                 <a
                   href="mailto:samjojames@gmail.com"
                   className={styles.contactLink}
@@ -260,9 +228,8 @@ export default function Home() {
                   samjojames@gmail.com
                 </a>
               </div>
-
               <div className={styles.contactItem}>
-                <div className={styles.contactLabel}>GITHUB</div>
+                <div className={styles.contactLabel}>GitHub</div>
                 <a
                   href="https://github.com/doctone"
                   target="_blank"

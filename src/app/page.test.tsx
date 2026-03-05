@@ -1,36 +1,77 @@
+import React from "react";
 import Home from "./page";
-import { render, screen } from "@testing-library/react";
+import { fireEvent, render, screen } from "@testing-library/react";
+import { vi } from "vitest";
+
+vi.mock(
+  "ai/react",
+  () => ({
+    useChat: () => ({
+      messages: [
+        {
+          id: "sam-intro",
+          role: "assistant",
+          content:
+            "Hi, I'm Sam's AI assistant. Ask me about Sam's experience, stack, architecture approach, or project fit.",
+        },
+      ],
+      input: "",
+      handleInputChange: () => {},
+      handleSubmit: (e: any) => e.preventDefault(),
+      isLoading: false,
+      error: undefined,
+      setInput: () => {},
+    }),
+  }),
+  { virtual: true }
+);
 
 // Mock framer-motion
-jest.mock("framer-motion", () => {
+vi.mock("framer-motion", () => {
   const React = require("react");
 
-  const MotionSection = React.forwardRef(({ children, style, whileInView, initial, viewport, transition, ...props }: any, ref: any) => (
-    <section ref={ref} {...props}>{children}</section>
-  ));
-  MotionSection.displayName = "MotionSection";
+  const makeMotion = (tag: string) => {
+    const Component = React.forwardRef(
+      (
+        {
+          children,
+          whileInView,
+          initial,
+          viewport,
+          transition,
+          animate,
+          ...props
+        }: any,
+        ref: any
+      ) => React.createElement(tag, { ref, ...props }, children)
+    );
+    Component.displayName = `Motion${tag}`;
+    return Component;
+  };
 
-  const MotionDiv = React.forwardRef(({ children, style, whileInView, initial, viewport, transition, animate, ...props }: any, ref: any) => (
-    <div ref={ref} {...props}>{children}</div>
-  ));
-  MotionDiv.displayName = "MotionDiv";
-
-  const MotionH1 = React.forwardRef(({ children, style, whileInView, initial, viewport, transition, animate, ...props }: any, ref: any) => (
-    <h1 ref={ref} {...props}>{children}</h1>
-  ));
-  MotionH1.displayName = "MotionH1";
+  const motion = new Proxy(
+    {},
+    {
+      get: (_target, key: string) => makeMotion(key),
+    }
+  );
 
   return {
-    motion: {
-      section: MotionSection,
-      div: MotionDiv,
-      h1: MotionH1,
-    },
+    motion,
     useScroll: () => ({
       scrollYProgress: { get: () => 0, set: () => {} },
     }),
     useTransform: () => ({ get: () => 1, set: () => {} }),
   };
+});
+
+beforeAll(() => {
+  class MockIntersectionObserver {
+    disconnect() {}
+    observe() {}
+    unobserve() {}
+  }
+  (global as any).IntersectionObserver = MockIntersectionObserver;
 });
 
 describe("Home Page", () => {
@@ -53,7 +94,21 @@ describe("Home Page", () => {
 
   it("renders contact information", () => {
     render(<Home />);
-    expect(screen.getByText(/Let's Connect/i)).toBeInTheDocument();
+    expect(screen.getByText(/Get in Touch/i)).toBeInTheDocument();
     expect(screen.getByText(/samjojames@gmail.com/i)).toBeInTheDocument();
+  });
+
+  it("opens the chat assistant panel from the floating launcher", () => {
+    render(<Home />);
+    const launcher = screen.getByRole("button", {
+      name: /Open chat with Sam's AI assistant/i,
+    });
+
+    fireEvent.click(launcher);
+
+    expect(
+      screen.getByRole("heading", { name: /Ask What Sam Builds/i, level: 2 })
+    ).toBeInTheDocument();
+    expect(screen.getByPlaceholderText(/Ask what Sam built/i)).toBeInTheDocument();
   });
 });

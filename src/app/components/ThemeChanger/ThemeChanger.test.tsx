@@ -1,15 +1,23 @@
+import React from "react";
 import { fireEvent, render, screen } from "@testing-library/react";
 import { ThemeChanger } from "./ThemeChanger";
-import * as NextThemes from "next-themes";
+import { vi } from "vitest";
 
-const mockSetTheme = jest.fn();
+const mockSetTheme = vi.fn();
 
-jest.mock("next-themes", () => ({
-  useTheme: () => ({
-    ...jest.requireActual,
-    setTheme: mockSetTheme,
-  }),
-}));
+vi.mock("next-themes", async () => {
+  const actual = await vi.importActual<typeof import("next-themes")>(
+    "next-themes"
+  );
+
+  return {
+    ...actual,
+    useTheme: () => ({
+      ...actual,
+      setTheme: mockSetTheme,
+    }),
+  };
+});
 
 describe("Theme Changer", () => {
   it("should render a theme changer component", () => {

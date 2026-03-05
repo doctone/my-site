@@ -1,0 +1,164 @@
+{
+  "identity": {
+    "name": "Sam James",
+    "title": "Senior Software Engineer",
+    "location": "United Kingdom"
+  },
+  "summary": "Senior full-stack engineer who designs and delivers reliable products across data, payments, and AI-enabled platforms, with a strong focus on architecture quality and practical business outcomes.",
+  "core_stack": [
+    "TypeScript",
+    "Node.js",
+    "React",
+    "Next.js",
+    "AWS",
+    "Docker",
+    "PostgreSQL",
+    "Redis",
+    "Event-driven architecture",
+    "AI SDK"
+  ],
+  "stack_profile": {
+    "languages": [
+      "TypeScript",
+      "JavaScript",
+      "SQL",
+      "Bash"
+    ],
+    "frontend": [
+      "React",
+      "Next.js App Router",
+      "Chakra UI",
+      "Tailwind CSS",
+      "Framer Motion",
+      "Accessible component design"
+    ],
+    "backend": [
+      "Node.js services",
+      "REST and webhook integrations",
+      "Async workflows",
+      "API design and contract evolution",
+      "Background workers",
+      "Domain-oriented service boundaries"
+    ],
+    "data_and_state": [
+      "PostgreSQL",
+      "Redis caching",
+      "Schema evolution",
+      "Data pipelines",
+      "Reporting-oriented models",
+      "Idempotent event processing"
+    ],
+    "cloud_and_infra": [
+      "AWS deployments",
+      "Containerized workloads",
+      "Infrastructure-aware application design",
+      "Environment and secret management",
+      "Production rollouts and rollback strategy"
+    ],
+    "architecture": [
+      "Event-driven systems",
+      "High-availability service design",
+      "Fault-tolerant integration patterns",
+      "Observability-first thinking",
+      "Incremental modernization of legacy systems"
+    ],
+    "quality_and_testing": [
+      "TDD",
+      "Unit and integration testing",
+      "Contract and regression testing",
+      "Refactoring for maintainability",
+      "Production hardening"
+    ],
+    "dev_tooling": [
+      "ESLint",
+      "Jest",
+      "PostCSS",
+      "CI-friendly workflows",
+      "Local developer experience improvements"
+    ],
+    "ai_product_engineering": [
+      "OpenAI integrations",
+      "AI SDK chat systems",
+      "Prompt and context engineering",
+      "Tooling for grounded responses",
+      "Safety and non-hallucination guardrails"
+    ]
+  },
+  "expertise_areas": [
+    "Backend architecture",
+    "Event-driven systems",
+    "Payments and transaction platforms",
+    "Data infrastructure",
+    "AI product engineering",
+    "Frontend product delivery",
+    "Reliability and quality engineering",
+    "Technical discovery and system modernization"
+  ],
+  "experience_highlights": [
+    {
+      "theme": "Data and analytics",
+      "detail": "Built data infrastructure for US analytics platforms, improving reliability and maintainability for data-heavy workflows."
+    },
+    {
+      "theme": "Fintech and payments",
+      "detail": "Modernized payment systems for major e-commerce contexts, focusing on scalable architecture, provider integration resilience, and operational uptime."
+    },
+    {
+      "theme": "Climate and reporting",
+      "detail": "Delivered carbon accounting tools for Private Equity firms to support portfolio-level emissions understanding and practical reporting workflows."
+    },
+    {
+      "theme": "Current AI work",
+      "detail": "Building AI systems for UK planning permission workflows at Xylo, combining domain constraints, product delivery, and model integration."
+    }
+  ],
+  "delivery_scope": {
+    "builds": [
+      "User-facing products with robust backend foundations",
+      "Mission-critical service integrations",
+      "Data-backed workflows for operational teams",
+      "AI copilots and domain-specific assistants",
+      "Systems that prioritize reliability, maintainability, and clear ownership"
+    ],
+    "ownership": [
+      "Problem framing with stakeholders",
+      "Architecture and implementation",
+      "Testing strategy",
+      "Release planning",
+      "Post-release iteration"
+    ]
+  },
+  "engineering_values": [
+    "Test-driven development",
+    "Well-tested and maintainable code",
+    "Domain-led modelling",
+    "Pragmatic technical decisions",
+    "Clear communication of tradeoffs",
+    "Outcome-oriented engineering over tool-chasing"
+  ],
+  "communication_prefs": {
+    "style": "Concise, specific, and practical",
+    "fit_assessment": "Map requirements directly to projects delivered, system constraints handled, and outcomes enabled",
+    "uncertainty": "State assumptions explicitly when details are missing",
+    "answer_priority": "Lead with what was built and why it mattered; include stack detail as supporting evidence"
+  },
+  "response_framework": {
+    "default_order": [
+      "Outcome",
+      "System or capability built",
+      "Technical approach",
+      "Relevant stack"
+    ],
+    "fit_questions": [
+      "Map requirement to evidence",
+      "Highlight delivery risks handled",
+      "Call out assumptions and unknowns"
+    ]
+  },
+  "do_not_claim": [
+    "Specific dates not provided",
+    "Certifications not provided",
+    "Employers or job titles not in known context",
+    "Metrics or outcomes that have not been stated"
+  ]
+}

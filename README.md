@@ -5,14 +5,41 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 First, run the development server:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
 pnpm dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
+Run tests with:
+
+```bash
+pnpm test
+```
+
+### AI chat setup
+
+This site includes an AI SDK-powered "Chat with Sam's AI Assistant" section.
+
+1. Install dependencies:
+
+```bash
+pnpm install
+```
+
+2. Set your OpenAI API key:
+
+```bash
+export OPENAI_API_KEY=your_api_key_here
+```
+
+### Context tuning inputs
+
+To tune the assistant to Sam's expertise:
+
+1. Edit structured profile data in `src/data/sam-profile.json`
+2. Add/expand evidence documents in `src/knowledge/*.md`
+
+The route retrieves relevant knowledge snippets per user question and injects them with the profile into system context.
 
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 

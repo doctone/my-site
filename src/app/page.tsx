@@ -3,6 +3,7 @@ import { useEffect, useMemo, useState } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import styles from "./page.module.css";
+import { SamChat } from "./components/SamChat/SamChat";
 
 const fadeIn = {
   initial: { opacity: 0, y: 20 },
@@ -254,6 +255,7 @@ export default function Home() {
           </div>
         </div>
       </footer>
+      <SamChat />
     </main>
   );
 }

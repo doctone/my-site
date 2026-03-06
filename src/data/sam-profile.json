@@ -78,10 +78,34 @@
     ],
     "ai_product_engineering": [
       "OpenAI integrations",
-      "AI SDK chat systems",
+      "Vercel AI SDK chat systems",
+      "Multi-turn conversation design",
       "Prompt and context engineering",
-      "Tooling for grounded responses",
-      "Safety and non-hallucination guardrails"
+      "Tool selection and response grounding",
+      "ML evaluation frameworks (Braintrust)",
+      "Multi-turn conversation evals",
+      "Safety and non-hallucination guardrails",
+      "Domain-specific LLM applications"
+    ],
+    "document_processing_and_ai": [
+      "PDF extraction and markdown generation",
+      "Policy document analysis with LLMs",
+      "Reference and relationship extraction",
+      "Document classification via AI",
+      "Multi-document reasoning systems"
+    ],
+    "monorepo_and_systems": [
+      "pnpm workspaces",
+      "Turbo build orchestration",
+      "AWS Lambda deployments",
+      "Serverless function architecture",
+      "Inngest background job workflows",
+      "Supabase PostgreSQL and file storage"
+    ],
+    "authentication_and_security": [
+      "2FA/MFA implementation",
+      "Authentication flow design",
+      "Token and session management"
     ]
   },
   "expertise_areas": [
@@ -90,9 +114,13 @@
     "Payments and transaction platforms",
     "Data infrastructure",
     "AI product engineering",
+    "Document processing and AI",
+    "ML evaluation and evals frameworks",
+    "Multi-turn AI chat systems",
     "Frontend product delivery",
     "Reliability and quality engineering",
-    "Technical discovery and system modernization"
+    "Technical discovery and system modernization",
+    "Monorepo architecture and tooling"
   ],
   "experience_highlights": [
     {
@@ -108,8 +136,8 @@
       "detail": "Delivered carbon accounting tools for Private Equity firms to support portfolio-level emissions understanding and practical reporting workflows."
     },
     {
-      "theme": "Current AI work",
-      "detail": "Building AI systems for UK planning permission workflows at Xylo, combining domain constraints, product delivery, and model integration."
+      "theme": "AI systems for planning and property intelligence",
+      "detail": "Building production AI systems for UK planning permission workflows at Xylo. Implemented PDF extraction pipelines with AI-generated markdown, multi-turn conversation systems with tool-based response grounding, ML eval frameworks (Braintrust) for response quality, and background job processing for async document analysis. Architected 30+ package monorepo with pnpm/Turbo, designed 2FA authentication flows, and drove reliability improvements through comprehensive testing strategies in a domain combining regulatory complexity with AI product delivery."
     }
   ],
   "delivery_scope": {

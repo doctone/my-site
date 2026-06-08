@@ -11,18 +11,6 @@ importers:
       '@ai-sdk/openai':
         specifier: ^1.3.24
         version: 1.3.24(zod@3.25.76)
-      '@chakra-ui/next-js':
-        specifier: ^2.4.2
-        version: 2.4.2(@chakra-ui/react@2.10.9(@emotion/react@11.14.0(@types/react@18.3.28)(react@18.3.1))(@emotion/styled@11.14.1(@emotion/react@11.14.0(@types/react@18.3.28)(react@18.3.1))(@types/react@18.3.28)(react@18.3.1))(@types/react@18.3.28)(framer-motion@11.18.2(@emotion/is-prop-valid@1.4.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@emotion/react@11.14.0(@types/react@18.3.28)(react@18.3.1))(next@15.5.12(@opentelemetry/api@1.9.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)
-      '@chakra-ui/react':
-        specifier: ^2.10.4
-        version: 2.10.9(@emotion/react@11.14.0(@types/react@18.3.28)(react@18.3.1))(@emotion/styled@11.14.1(@emotion/react@11.14.0(@types/react@18.3.28)(react@18.3.1))(@types/react@18.3.28)(react@18.3.1))(@types/react@18.3.28)(framer-motion@11.18.2(@emotion/is-prop-valid@1.4.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      '@emotion/react':
-        specifier: ^11.13.5
-        version: 11.14.0(@types/react@18.3.28)(react@18.3.1)
-      '@emotion/styled':
-        specifier: ^11.13.5
-        version: 11.14.1(@emotion/react@11.14.0(@types/react@18.3.28)(react@18.3.1))(@types/react@18.3.28)(react@18.3.1)
       '@types/node':
         specifier: ^22.10.2
         version: 22.19.13
@@ -44,15 +32,9 @@ importers:
       eslint-config-next:
         specifier: ^15.1.3
         version: 15.5.12(eslint@8.57.1)(typescript@5.9.3)
-      framer-motion:
-        specifier: ^11.15.0
-        version: 11.18.2(@emotion/is-prop-valid@1.4.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       next:
         specifier: ^15.1.3
         version: 15.5.12(@opentelemetry/api@1.9.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      next-themes:
-        specifier: ^0.4.4
-        version: 0.4.6(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       postcss:
         specifier: ^8.4.49
         version: 8.5.8
@@ -65,22 +47,13 @@ importers:
       react-markdown:
         specifier: ^9.0.1
         version: 9.1.0(@types/react@18.3.28)(react@18.3.1)
-      react-social-icons:
-        specifier: ^6.20.0
-        version: 6.25.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       remark-gfm:
         specifier: ^4.0.1
         version: 4.0.1
-      tailwindcss:
-        specifier: ^3.4.17
-        version: 3.4.19
       typescript:
         specifier: ^5.7.2
         version: 5.9.3
     devDependencies:
-      '@chakra-ui/icons':
-        specifier: ^2.2.4
-        version: 2.2.4(@chakra-ui/react@2.10.9(@emotion/react@11.14.0(@types/react@18.3.28)(react@18.3.1))(@emotion/styled@11.14.1(@emotion/react@11.14.0(@types/react@18.3.28)(react@18.3.1))(@types/react@18.3.28)(react@18.3.1))(@types/react@18.3.28)(framer-motion@11.18.2(@emotion/is-prop-valid@1.4.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)
       '@testing-library/jest-dom':
         specifier: ^6.6.3
         version: 6.9.1

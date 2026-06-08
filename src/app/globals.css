@@ -1,23 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=Inter:wght@400;500&display=swap');
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
 :root {
   --color-bg: #111111;
   --color-surface: #1a1a1a;
   --color-text: #e5e5e5;
   --color-text-dim: #737373;
   --color-border: rgba(255, 255, 255, 0.08);
-}
-
-[data-theme='light'] {
-  --color-bg: #fafafa;
-  --color-surface: #ffffff;
-  --color-text: #171717;
-  --color-text-dim: #737373;
-  --color-border: rgba(0, 0, 0, 0.08);
 }
 
 * {

@@ -4,7 +4,7 @@ import { FormEvent, useState } from "react";
 import { useChat } from "ai/react";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
-import styles from "../../page.module.css";
+import styles from "./SamChat.module.css";
 
 export function SamChat() {
   const [isOpen, setIsOpen] = useState(false);

@@ -90,11 +90,30 @@ Rolling updates (image change, `maxSurge`/`maxUnavailable`), multi-node scheduli
 
 **What:** Add the `src/app/k8s/page.tsx` route: page metadata (title, description), an intro section, and an empty lesson layout using the site's existing tokens and fonts from `globals.css`. Don't link it from the landing page yet.
 
+The intro sets up the course's core mental model, **the thermostat**, which later scenes refer back to.
+
+### Mental model: the thermostat
+
+You don't tell a thermostat "run the heater for 20 minutes". You tell it "I want 21°C", and it keeps checking the room and correcting. Kubernetes works the same way: you declare the **desired state** ("3 replicas of this app"), and controllers keep comparing it with the **actual state** and closing the gap. That loop is the one idea the whole course builds on.
+
+- The intro explains this in plain language, before any Kubernetes terms.
+- Later scenes reuse it: the "desired vs ready" counter in `ClusterView` is the thermostat's display, and scaling and self-healing are the thermostat correcting.
+- Say where the analogy stops working: a thermostat nudges one number, while Kubernetes replaces whole pods and never repairs them (the self-healing scene covers this).
+
+### Thermostat image
+
+Find a thermostat image for the intro that fits the site's dark, minimal look.
+- Use it only if the licence permits reuse: CC0/public domain (e.g. Wikimedia Commons), the Unsplash licence, or similar. If nothing suitable turns up, draw a simple SVG thermostat instead.
+- Save it in `public/k8s/` (optimised: WebP or SVG, under ~100 KB) and render it with `next/image` (or inline SVG).
+- Record the source URL, author and licence in `public/k8s/CREDITS.md`, plus a visible credit line if the licence requires one.
+- Meaningful `alt` text, e.g. "A thermostat set to 21°C".
+
 **Acceptance criteria**
-- `/k8s` renders a level-1 heading and intro prose.
+- `/k8s` renders a level-1 heading and intro prose that explains desired vs actual state using the thermostat analogy.
+- The thermostat image appears in the intro, with alt text, and its licence and source are recorded in `public/k8s/CREDITS.md`.
 - Page `metadata` export sets a `/k8s`-specific title and description.
 - The layout is readable at 375px with no horizontal scroll.
-- Smoke test `src/app/k8s/page.test.tsx` renders the page and finds the heading.
+- Smoke test `src/app/k8s/page.test.tsx` renders the page and finds the heading, the thermostat image (by alt text) and the intro text mentioning desired state.
 
 **Depends on:** none
 

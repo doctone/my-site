@@ -1,0 +1,127 @@
+.keyboard {
+  width: min(100%, 300px);
+  margin: 3.5rem auto;
+  view-timeline-name: --keyboard;
+}
+
+.keys {
+  position: relative;
+  height: 96px;
+  display: flex;
+  align-items: flex-end;
+  gap: 2px;
+}
+
+.whiteKey {
+  position: relative;
+  flex: 1;
+  height: 96px;
+  display: grid;
+  place-items: end center;
+  padding-bottom: 0.6rem;
+  border: 1px solid var(--color-bg);
+  border-radius: 0 0 4px 4px;
+  background: var(--color-text);
+  color: var(--color-bg);
+  font-family: ui-monospace, "SF Mono", Menlo, monospace;
+  font-size: 0.7rem;
+}
+
+.whiteKey > span,
+.caption > span {
+  grid-area: 1 / 1;
+}
+
+.whiteKey .letter {
+  align-self: center;
+}
+
+.blackKey {
+  position: absolute;
+  top: 0;
+  z-index: 1;
+  width: 8%;
+  height: 58px;
+  border-radius: 0 0 3px 3px;
+  background: var(--color-bg);
+}
+
+.letter {
+  opacity: 0;
+}
+
+.caption {
+  display: grid;
+  justify-items: center;
+  margin-top: 1rem;
+  color: var(--color-text-dim);
+  font-size: 0.8rem;
+}
+
+@keyframes pianoToKeycap {
+  to {
+    height: 44px;
+    border-color: rgb(255 255 255 / 28%);
+    border-radius: 8px;
+    background: var(--color-surface);
+    color: var(--color-text);
+  }
+}
+
+@keyframes blackKeyOut {
+  to {
+    height: 0;
+    opacity: 0;
+  }
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  40%,
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes fadeIn {
+  0%,
+  60% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .whiteKey,
+    .blackKey,
+    .note,
+    .letter {
+      animation-duration: auto;
+      animation-timing-function: ease-in-out;
+      animation-fill-mode: both;
+      animation-timeline: --keyboard;
+      animation-range: cover 30% cover 55%;
+    }
+
+    .whiteKey {
+      animation-name: pianoToKeycap;
+    }
+
+    .blackKey {
+      animation-name: blackKeyOut;
+    }
+
+    .note {
+      animation-name: fadeOut;
+    }
+
+    .letter {
+      animation-name: fadeIn;
+    }
+  }
+}

@@ -1,6 +1,7 @@
 import type { ReactNode } from "react";
 import Image from "next/image";
 import { profile, type ProfileLink } from "@/data/profile";
+import { KeyboardMorph } from "./components/KeyboardMorph/KeyboardMorph";
 import styles from "./page.module.css";
 
 const icons: Record<ProfileLink["label"], ReactNode> = {
@@ -33,10 +34,6 @@ const icons: Record<ProfileLink["label"], ReactNode> = {
     />
   ),
 };
-
-const notes = ["C", "D", "E", "F", "G", "A", "B"];
-const homeRow = ["A", "S", "D", "F", "J", "K", "L"];
-const blackKeyPositions = [1, 2, 4, 5, 6];
 
 export default function Home() {
   return (
@@ -119,27 +116,7 @@ export default function Home() {
           you can do with them.
         </p>
 
-        <figure className={styles.keyboard} aria-hidden="true">
-          <div className={styles.keys}>
-            {notes.map((note, index) => (
-              <span key={note} className={styles.whiteKey}>
-                <span className={styles.note}>{note}</span>
-                <span className={styles.letter}>{homeRow[index]}</span>
-              </span>
-            ))}
-            {blackKeyPositions.map((position) => (
-              <span
-                key={position}
-                className={styles.blackKey}
-                style={{ left: `calc(${position} * 100% / 7 - 4%)` }}
-              />
-            ))}
-          </div>
-          <figcaption className={styles.caption}>
-            <span className={styles.note}>one octave</span>
-            <span className={styles.letter}>home row</span>
-          </figcaption>
-        </figure>
+        <KeyboardMorph />
 
         <p className={`${styles.prose} ${styles.reveal}`}>
           Since becoming an engineer, that&apos;s how I&apos;ve always felt

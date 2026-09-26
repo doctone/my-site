@@ -65,7 +65,9 @@
   width: 24px;
   height: 24px;
   color: var(--color-text);
-  transition: color 160ms ease, transform 160ms ease;
+  transition:
+    color 160ms ease,
+    transform 160ms ease;
 }
 
 .link svg {
@@ -123,6 +125,11 @@
 .cue svg {
   width: 18px;
   height: 18px;
+  transition: transform 200ms ease;
+}
+
+.cue:hover svg {
+  transform: translateY(3px);
 }
 
 .cue:hover {
@@ -161,90 +168,18 @@
   line-height: 1.8;
 }
 
-.keyboard {
-  width: min(100%, 300px);
-  margin: 3.5rem auto;
-  view-timeline-name: --keyboard;
+@keyframes recede {
+  to {
+    opacity: 0;
+    transform: translateY(-3rem) scale(0.94);
+  }
 }
 
-.keys {
-  position: relative;
-  height: 96px;
-  display: flex;
-  align-items: flex-end;
-  gap: 2px;
-}
-
-.whiteKey {
-  position: relative;
-  flex: 1;
-  height: 96px;
-  display: grid;
-  place-items: end center;
-  padding-bottom: 0.6rem;
-  border: 1px solid var(--color-bg);
-  border-radius: 0 0 4px 4px;
-  background: var(--color-text);
-  color: var(--color-bg);
-  font-family: ui-monospace, "SF Mono", Menlo, monospace;
-  font-size: 0.7rem;
-}
-
-.whiteKey > span,
-.caption > span {
-  grid-area: 1 / 1;
-}
-
-.whiteKey .letter {
-  align-self: center;
-}
-
-.blackKey {
-  position: absolute;
-  top: 0;
-  z-index: 1;
-  width: 8%;
-  height: 58px;
-  border-radius: 0 0 3px 3px;
-  background: var(--color-bg);
-}
-
-.letter {
-  opacity: 0;
-}
-
-.caption {
-  display: grid;
-  justify-items: center;
-  margin-top: 1rem;
-  color: var(--color-text-dim);
-  font-size: 0.8rem;
-}
-
-.lists {
-  display: grid;
-  gap: 2.5rem;
-  margin-top: 2.5rem;
-}
-
-.label {
-  color: var(--color-text-dim);
-  font-size: 0.75rem;
-  font-weight: 400;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-}
-
-.list {
-  margin-top: 0.75rem;
-  border-top: 1px solid var(--color-border);
-  list-style: none;
-}
-
-.list li {
-  padding: 0.7rem 0;
-  border-bottom: 1px solid var(--color-border);
-  line-height: 1.6;
+@keyframes cueOut {
+  to {
+    opacity: 0;
+    transform: translate(-50%, 1rem);
+  }
 }
 
 @keyframes rise {
@@ -258,45 +193,26 @@
   }
 }
 
-@keyframes pianoToKeycap {
-  to {
-    height: 44px;
-    border-color: rgb(255 255 255 / 28%);
-    border-radius: 8px;
-    background: var(--color-surface);
-    color: var(--color-text);
-  }
-}
-
-@keyframes blackKeyOut {
-  to {
-    height: 0;
-    opacity: 0;
-  }
-}
-
-@keyframes fadeOut {
-  0% {
-    opacity: 1;
-  }
-  40%,
-  100% {
-    opacity: 0;
-  }
-}
-
-@keyframes fadeIn {
-  0%,
-  60% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-
 @supports (animation-timeline: view()) {
   @media (prefers-reduced-motion: no-preference) {
+    .profile {
+      animation-name: recede;
+      animation-duration: auto;
+      animation-timing-function: ease-in;
+      animation-fill-mode: both;
+      animation-timeline: view();
+      animation-range: cover 50% cover 90%;
+    }
+
+    .cue {
+      animation-name: cueOut;
+      animation-duration: auto;
+      animation-timing-function: linear;
+      animation-fill-mode: both;
+      animation-timeline: scroll(root);
+      animation-range: 0 25vh;
+    }
+
     .reveal {
       animation-name: rise;
       animation-duration: auto;
@@ -304,33 +220,6 @@
       animation-fill-mode: both;
       animation-timeline: view();
       animation-range: entry 10% cover 30%;
-    }
-
-    .whiteKey,
-    .blackKey,
-    .note,
-    .letter {
-      animation-duration: auto;
-      animation-timing-function: ease-in-out;
-      animation-fill-mode: both;
-      animation-timeline: --keyboard;
-      animation-range: cover 30% cover 55%;
-    }
-
-    .whiteKey {
-      animation-name: pianoToKeycap;
-    }
-
-    .blackKey {
-      animation-name: blackKeyOut;
-    }
-
-    .note {
-      animation-name: fadeOut;
-    }
-
-    .letter {
-      animation-name: fadeIn;
     }
   }
 }

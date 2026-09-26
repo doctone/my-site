@@ -17,8 +17,14 @@ const links = [
     href: "https://www.linkedin.com/in/sam-james1991/",
     icon: (
       <>
-        <path fill="currentColor" d="M4.8 3.3a2.2 2.2 0 1 1-4.4 0 2.2 2.2 0 0 1 4.4 0ZM.7 7h3.8v12.2H.7V7Z" />
-        <path fill="currentColor" d="M7 7h3.6v1.7h.1c.5-1 1.7-2.1 3.6-2.1 3.8 0 4.5 2.5 4.5 5.8v6.8H15v-6c0-1.4 0-3.3-2-3.3s-2.3 1.6-2.3 3.2v6.1H7V7Z" />
+        <path
+          fill="currentColor"
+          d="M4.8 3.3a2.2 2.2 0 1 1-4.4 0 2.2 2.2 0 0 1 4.4 0ZM.7 7h3.8v12.2H.7V7Z"
+        />
+        <path
+          fill="currentColor"
+          d="M7 7h3.6v1.7h.1c.5-1 1.7-2.1 3.6-2.1 3.8 0 4.5 2.5 4.5 5.8v6.8H15v-6c0-1.4 0-3.3-2-3.3s-2.3 1.6-2.3 3.2v6.1H7V7Z"
+        />
       </>
     ),
   },
@@ -38,49 +44,158 @@ const links = [
   },
 ];
 
+const notes = ["C", "D", "E", "F", "G", "A", "B"];
+const homeRow = ["A", "S", "D", "F", "J", "K", "L"];
+const blackKeyPositions = [1, 2, 4, 5, 6];
+
+const work = [
+  "LLM pipelines ingesting data from internal, external and public sources",
+  "Analysis that builds intelligent signals from that data",
+  "Entity extraction and consolidation across those signals",
+  "Comparison and exploration of intelligence data",
+];
+
+const stack = [
+  "Python intelligence layer, Temporal-orchestrated workers",
+  "Next.js product app, shared React design system",
+  "EKS, Terraform, ArgoCD. GitOps all the way down",
+];
+
 export default function Home() {
   return (
-    <main className={styles.main}>
-      <section className={styles.profile} aria-labelledby="profile-title">
-        <div className={styles.avatar}>
-          <Image
-            src="/profile-photo.png"
-            alt="Portrait of Sam James"
-            width={96}
-            height={96}
-            priority
-          />
+    <main>
+      <div className={styles.cover}>
+        <section className={styles.profile} aria-labelledby="profile-title">
+          <div className={styles.avatar}>
+            <Image
+              src="/profile-photo.png"
+              alt="Portrait of Sam James"
+              width={96}
+              height={96}
+              priority
+            />
+          </div>
+
+          <h1 id="profile-title" className={styles.title}>
+            Hey, I&apos;m Sam
+          </h1>
+
+          <p className={styles.intro}>
+            I build software that finds the signal in everyone else&apos;s
+            noise.
+          </p>
+          <p className={`${styles.intro} ${styles.focus}`}>
+            Formerly a jazz pianist. Still improvising, just with better tests.
+          </p>
+
+          <nav className={styles.links} aria-label="Find Sam online">
+            {links.map(({ label, href, icon }) => (
+              <a
+                key={label}
+                className={styles.link}
+                href={href}
+                aria-label={label}
+                title={label}
+                target={href.startsWith("http") ? "_blank" : undefined}
+                rel={href.startsWith("http") ? "noreferrer" : undefined}
+              >
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  {icon}
+                </svg>
+              </a>
+            ))}
+          </nav>
+        </section>
+
+        <a className={styles.cue} href="#story">
+          My story
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path
+              d="m6 9 6 6 6-6"
+              fill="none"
+              stroke="currentColor"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="1.7"
+            />
+          </svg>
+        </a>
+      </div>
+
+      <section
+        id="story"
+        className={styles.story}
+        aria-labelledby="story-title"
+      >
+        <h2 id="story-title" className={`${styles.heading} ${styles.reveal}`}>
+          My story
+        </h2>
+
+        <p className={`${styles.prose} ${styles.reveal}`}>
+          I&apos;m a jazz pianist, and I spent a lot of my early years obsessed
+          with the piano. I went to music college, played professionally in
+          London, toured and recorded albums. The piano was my home.
+        </p>
+        <p className={`${styles.prose} ${styles.reveal}`}>
+          It cultivated in me an appetite for creativity within parameters.
+          There are only 88 keys on a piano, but an infinite number of things
+          you can do with them.
+        </p>
+
+        <figure className={styles.keyboard} aria-hidden="true">
+          <div className={styles.keys}>
+            {notes.map((note, index) => (
+              <span key={note} className={styles.whiteKey}>
+                <span className={styles.note}>{note}</span>
+                <span className={styles.letter}>{homeRow[index]}</span>
+              </span>
+            ))}
+            {blackKeyPositions.map((position) => (
+              <span
+                key={position}
+                className={styles.blackKey}
+                style={{ left: `calc(${position} * 100% / 7 - 4%)` }}
+              />
+            ))}
+          </div>
+          <figcaption className={styles.caption}>
+            <span className={styles.note}>one octave</span>
+            <span className={styles.letter}>home row</span>
+          </figcaption>
+        </figure>
+
+        <p className={`${styles.prose} ${styles.reveal}`}>
+          Since becoming an engineer, that&apos;s how I&apos;ve always felt
+          about building software. The right parameters give you the most
+          effective means for creativity.
+        </p>
+
+        <h2 className={`${styles.heading} ${styles.reveal}`}>
+          What I&apos;m building
+        </h2>
+        <p className={`${styles.prose} ${styles.reveal}`}>
+          Today that means an intelligence platform that turns internal,
+          external and public data into signals people can compare and explore.
+        </p>
+
+        <div className={styles.lists}>
+          <div className={styles.reveal}>
+            <h3 className={styles.label}>Work</h3>
+            <ul className={styles.list}>
+              {work.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
+          </div>
+          <div className={styles.reveal}>
+            <h3 className={styles.label}>Stack</h3>
+            <ul className={styles.list}>
+              {stack.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
+          </div>
         </div>
-
-        <h1 id="profile-title" className={styles.title}>
-          Hey, I&apos;m Sam
-        </h1>
-
-        <p className={styles.intro}>
-          I design and build intelligent products for complex, real-world
-          problems.
-        </p>
-        <p className={`${styles.intro} ${styles.focus}`}>
-          Currently bringing clarity to complex enterprise systems.
-        </p>
-
-        <nav className={styles.links} aria-label="Find Sam online">
-          {links.map(({ label, href, icon }) => (
-            <a
-              key={label}
-              className={styles.link}
-              href={href}
-              aria-label={label}
-              title={label}
-              target={href.startsWith("http") ? "_blank" : undefined}
-              rel={href.startsWith("http") ? "noreferrer" : undefined}
-            >
-              <svg viewBox="0 0 24 24" aria-hidden="true">
-                {icon}
-              </svg>
-            </a>
-          ))}
-        </nav>
       </section>
     </main>
   );

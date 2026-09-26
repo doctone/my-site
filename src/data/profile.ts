@@ -1,7 +1,7 @@
 /**
  * The single source of facts about Sam. The home page renders the links and
- * current focus, and the assistant sends the whole object to the model as
- * context, so both always say the same thing.
+ * the current focus summary, and the assistant sends the whole object to the
+ * model as context, so both always say the same thing.
  */
 export type ProfileLink = {
   label: "GitHub" | "LinkedIn" | "Email";
@@ -12,7 +12,7 @@ type Profile = {
   identity: { name: string; title: string; location: string };
   links: ProfileLink[];
   /** What Sam works on now. Everything else describes past experience. */
-  currentFocus: { work: string[]; stack: string[] };
+  currentFocus: { summary: string; work: string[]; stack: string[] };
   [section: string]: unknown;
 };
 
@@ -37,6 +37,8 @@ export const profile = {
     },
   ],
   currentFocus: {
+    summary:
+      "Currently I'm a contractor focused on building AI products and platform engineering.",
     work: [
       "LLM pipelines ingesting data from internal, external and public sources",
       "Analysis that builds intelligent signals from that data",

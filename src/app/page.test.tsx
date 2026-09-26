@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 import React from "react";
-import { render, screen, within } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import Home from "./page";
 
 describe("Home Page", () => {
@@ -52,23 +52,17 @@ describe("Home Page", () => {
     ).toBeInTheDocument();
   });
 
-  it("lists what Sam is building and the stack behind it", () => {
+  it("says what Sam is building now", () => {
     render(<Home />);
 
     expect(
       screen.getByRole("heading", { name: "What I'm building", level: 2 }),
     ).toBeInTheDocument();
-
-    const work = screen.getByRole("heading", { name: "Work", level: 3 })
-      .nextElementSibling as HTMLElement;
-    const stack = screen.getByRole("heading", { name: "Stack", level: 3 })
-      .nextElementSibling as HTMLElement;
-
-    expect(within(work).getAllByRole("listitem")).toHaveLength(4);
-    expect(within(work).getByText(/entity extraction/i)).toBeInTheDocument();
-    expect(within(stack).getAllByRole("listitem")).toHaveLength(3);
     expect(
-      within(stack).getByText(/temporal-orchestrated/i),
+      screen.getByText(
+        "Currently I'm a contractor focused on building AI products and platform engineering.",
+      ),
     ).toBeInTheDocument();
+    expect(screen.queryByRole("list")).not.toBeInTheDocument();
   });
 });

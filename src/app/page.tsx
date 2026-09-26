@@ -128,28 +128,8 @@ export default function Home() {
           What I&apos;m building
         </h2>
         <p className={`${styles.prose} ${styles.reveal}`}>
-          Today that means an intelligence platform that turns internal,
-          external and public data into signals people can compare and explore.
+          {profile.currentFocus.summary}
         </p>
-
-        <div className={styles.lists}>
-          <div className={styles.reveal}>
-            <h3 className={styles.label}>Work</h3>
-            <ul className={styles.list}>
-              {profile.currentFocus.work.map((item) => (
-                <li key={item}>{item}</li>
-              ))}
-            </ul>
-          </div>
-          <div className={styles.reveal}>
-            <h3 className={styles.label}>Stack</h3>
-            <ul className={styles.list}>
-              {profile.currentFocus.stack.map((item) => (
-                <li key={item}>{item}</li>
-              ))}
-            </ul>
-          </div>
-        </div>
       </section>
     </main>
   );

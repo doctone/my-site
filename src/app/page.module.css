@@ -125,6 +125,11 @@
 .cue svg {
   width: 18px;
   height: 18px;
+  transition: transform 200ms ease;
+}
+
+.cue:hover svg {
+  transform: translateY(3px);
 }
 
 .cue:hover {
@@ -163,6 +168,20 @@
   line-height: 1.8;
 }
 
+@keyframes recede {
+  to {
+    opacity: 0;
+    transform: translateY(-3rem) scale(0.94);
+  }
+}
+
+@keyframes cueOut {
+  to {
+    opacity: 0;
+    transform: translate(-50%, 1rem);
+  }
+}
+
 @keyframes rise {
   from {
     opacity: 0;
@@ -176,6 +195,24 @@
 
 @supports (animation-timeline: view()) {
   @media (prefers-reduced-motion: no-preference) {
+    .profile {
+      animation-name: recede;
+      animation-duration: auto;
+      animation-timing-function: ease-in;
+      animation-fill-mode: both;
+      animation-timeline: view();
+      animation-range: cover 50% cover 90%;
+    }
+
+    .cue {
+      animation-name: cueOut;
+      animation-duration: auto;
+      animation-timing-function: linear;
+      animation-fill-mode: both;
+      animation-timeline: scroll(root);
+      animation-range: 0 25vh;
+    }
+
     .reveal {
       animation-name: rise;
       animation-duration: auto;

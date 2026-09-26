@@ -38,7 +38,7 @@ export const profile = {
   ],
   currentFocus: {
     summary:
-      "Currently I'm a contractor focused on building AI products and platform engineering.",
+      "Currently I'm a contractor focused on building AI products and platform engineering. I'm experienced in event-driven architectures, cloud and infrastructure.",
     work: [
       "LLM pipelines ingesting data from internal, external and public sources",
       "Analysis that builds intelligent signals from that data",

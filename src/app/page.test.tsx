@@ -60,7 +60,7 @@ describe("Home Page", () => {
     ).toBeInTheDocument();
     expect(
       screen.getByText(
-        "Currently I'm a contractor focused on building AI products and platform engineering.",
+        "Currently I'm a contractor focused on building AI products and platform engineering. I'm experienced in event-driven architectures, cloud and infrastructure.",
       ),
     ).toBeInTheDocument();
     expect(screen.queryByRole("list")).not.toBeInTheDocument();

@@ -36,10 +36,10 @@ export OPENAI_API_KEY=your_api_key_here
 
 To tune the assistant to Sam's expertise:
 
-1. Edit structured profile data in `src/data/sam-profile.json`
-2. Add/expand evidence documents in `src/knowledge/*.md`
+1. Edit profile facts in `src/data/profile.ts`. The home page renders the links and current focus from here, and the assistant sends the whole profile to the model.
+2. Add or expand evidence documents in `src/knowledge/*.md`.
 
-The route retrieves relevant knowledge snippets per user question and injects them with the profile into system context.
+The assistant module in `src/assistant` retrieves knowledge relevant to each question and adds it, with the profile, to the system prompt. The chat route only wires in the OpenAI model and the knowledge files.
 
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 

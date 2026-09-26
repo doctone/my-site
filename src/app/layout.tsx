@@ -13,7 +13,7 @@ export default function RootLayout({
         <title>Sam James - Software Engineer</title>
         <meta
           name="description"
-          content="Sam James designs and builds intelligent products for complex, real-world problems."
+          content="Sam James builds software that finds the signal in everyone else's noise."
         />
       </head>
       <body>{children}</body>
